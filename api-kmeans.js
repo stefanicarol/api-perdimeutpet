@@ -1,5 +1,5 @@
 const kmeans = require('node-kmeans');
-
+// API PARA EXECUTAR O ALGORITMO KMEANS
 var apis = {
     groupOrders : function(req,res) {
         var data = req.body.orders;

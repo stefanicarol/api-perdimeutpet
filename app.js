@@ -1,10 +1,10 @@
 const express = require('express');
 const mongoose = require('mongoose');
 
-require("./models/Characters");
+require("./api/models/characters.model");
 const Characters = mongoose.model('characters');
 
-require("./models/Pets");
+require("./api/models/pets.model");
 const Pets = mongoose.model('pets');
 
 const app = express();
@@ -12,8 +12,8 @@ const app = express();
 app.use(express.json());
 
 mongoose.connect('mongodb://localhost/perdimeupet', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
+    useNewUrlParser: true,
+    useUnifiedTopology: true
 }).then(() => {
     console.log("Conexão com MongoDB realizada com sucesso!");
 }).catch((erro) => {
@@ -24,6 +24,7 @@ app.get("/", (req, res) => {
     return res.json({titulo: "API perdi meu pet"});
 });
 
+// ENDPOINT PARA CADASTRAR UM CARACTERÍSTICAS
 app.post("/characters", (req, res) => {
     const characters = Characters.create(req.body, (err) => {
         if (err) return res.status(400).json({
@@ -38,6 +39,19 @@ app.post("/characters", (req, res) => {
     });
 });
 
+// ENDPOINT PARA RETORNAR LISTA DE CARACTERÍSTICAS DO PETS
+app.get("/characters", (req, res) => {
+    Characters.find({}).then((character)=>{
+        return res.json(character);
+    }).catch((erro)=> {
+        return res.status(400).json({
+            error: true,
+            message:"Não encontrado!"
+        })
+    }) 
+});
+
+// ENDPOINT PARA CADASTRAR UM PET
 app.post("/pets", (req, res) => {
     const pets = Pets.create(req.body, (err) => {
         if (err) return res.status(400).json({
@@ -50,6 +64,18 @@ app.post("/pets", (req, res) => {
             message: "Pet cadastrado com sucesso!"
         })
     });
+});
+
+// ENDPOINT PARA RETORNAR LISTA DE PETS
+app.get("/pets", (req, res) => {
+    Pets.find({}).then((pets)=>{
+        return res.json(pets);
+    }).catch((erro)=> {
+        return res.status(400).json({
+            error: true,
+            message:"Não encontrado!"
+        })
+    }) 
 });
 
 
