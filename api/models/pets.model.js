@@ -5,50 +5,104 @@ const Pets = new mongoose.Schema({
         type: Number,
         required: true
     },     
-    elements:
-        [
-            {    cat_breed: {
-                    type: Number,
-                    required: false
-                },
-                color: {
-                    type: Number,
-                    required: true
-                }, 
-                gender:{
-                    type: Number,
-                    required: false
-                }, 
-                dog_breed: {
-                    type: Number,
-                    required: false
-                }, 
-                owner: {
-                    type: String,
-                    required: true
-                }, 
-                pelage: {
-                    type: Number,
-                    required: true
-                },
-                size: {
-                    type: Number,
-                    required: true
-                },
-                species: {
-                    type: Number,
-                    required: true
-                },
-                status: {
-                    type: Number,
-                    required: true
-                },
-                photo: {
-                    type: String,
-                    required: true
-                },
-            }
-        ],    
+    cat_breed: {
+        id: {
+            type: Number,
+            required: false
+        },
+        cat_breed: {
+            type: String,
+            required: false
+        },
+    },
+    color: {
+        id: {
+            type: Number,
+            required: true
+        },
+        color: {
+            type: String,
+            required: true
+        },
+    }, 
+    gender:{
+        id: {
+            type: Number,
+            required: true
+        },
+        gender: {
+            type: String,
+            required: true
+        },
+    }, 
+    dog_breed: {
+        id: {
+            type: Number,
+            required: false
+        },
+        dog_breed: {
+            type: String,
+            required: false
+        },
+    }, 
+    owner: {
+        type: String,
+        required: true
+    }, 
+    pelage: {
+            id: {
+                type: Number,
+                required: true
+            },
+            pelage: {
+                type: String,
+                required: true
+            },
+    },
+    size: {
+        id: {
+            type: Number,
+            required: true
+        },
+        size: {
+            type: String,
+            required: true
+        },
+    },
+    species: {
+            id: {
+                type: Number,
+                required: true
+            },
+            species: {
+                type: String,
+                required: true
+            },
+    },
+    status: { 
+        type: Number,
+        required: true 
+    },
+    photo: {
+        type: String,
+        required: true
+   },   
+    contact: {
+        type: String,
+        required: false
+   },   
+    city: {
+        type: String,
+        required: false
+   },   
+    observation: {
+        type: String,
+        required: false
+   },  
+    date: {
+        type: String,
+        required: false
+   },   
 },
 {
     timestamps: true,

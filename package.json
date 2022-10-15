@@ -1,21 +1,30 @@
 {
   "name": "api-perdimeupet",
-  "main": "server.js",
+  "main": "app.js",
   "dependencies": {
     "body-parser": "latest",
     "express": "^4.18.1",
-    "mongodb": "^4.9.1",
-    "mongoose": "^6.5.4",
+    "mongodb": "^4.10.0",
+    "mongoose": "^6.6.3",
     "node-kmeans": "latest"
   },
   "devDependencies": {
-    "nodemon": "^2.0.19"
+    "nodemon": "^2.0.20"
   },
   "scripts": {
-    "dev": "nodemon"
+    "dev": "nodemon",
+    "start": "node app.js"
   },
   "description": "--------------------------------------\r SEQUENCIA PARA CRIAR O PROJETO\r --------------------------------------\r Criar o arquivo package\r npm init",
   "version": "1.0.0",
   "author": "Stéfani Carol Gonçalves",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stefanicarol/api-perdimeutpet.git"
+  },
+  "bugs": {
+    "url": "https://github.com/stefanicarol/api-perdimeutpet/issues"
+  },
+  "homepage": "https://github.com/stefanicarol/api-perdimeutpet#readme"
 }

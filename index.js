@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
-var apis = require('./apis.js');
+var apis = require('./api-kmeans.js');
 
-router.post('/grouporders', apis.groupOrders);
-router.post('/assigndrivers', apis.assignDrivers);
+router.post('/grouppets', apis.groupPets);
+router.post('/makecombination', apis.makeCombination);
 
 module.exports = router;

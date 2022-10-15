@@ -78,6 +78,29 @@ app.get("/pets", (req, res) => {
     }) 
 });
 
+// ENDPOINT PARA RETORNAR LISTA DE PETS ACHADOS
+app.get("/pets_find", (req, res) => {
+    Pets.find({status:1}).then((pets)=>{
+        return res.json(pets);
+    }).catch((erro)=> {
+        return res.status(400).json({
+            error: true,
+            message:"Não encontrado!"
+        })
+    }) 
+});
+// ENDPOINT PARA RETORNAR LISTA DE PETS PERDIDO
+app.get("/pets_lost", (req, res) => {
+    Pets.find({status:2}).then((pets)=>{
+        return res.json(pets);
+    }).catch((erro)=> {
+        return res.status(400).json({
+            error: true,
+            message:"Não encontrado!"
+        })
+    }) 
+});
+ 
 
 app.listen(8080, () =>{
     console.log("Servidor iniciado na porta 8080: http://localhost:8080/");
