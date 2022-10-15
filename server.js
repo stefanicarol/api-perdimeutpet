@@ -2,7 +2,9 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
 const mongoose = require('mongoose');
+
 const PORT = process.env.PORT || 3000;
+const MONGODB_URI = process.env.MONGODB_URI;
 
 require("./api/models/characters.model");
 const Characters = mongoose.model('characters');
@@ -32,7 +34,7 @@ var server = app.listen(1338, function () {
 });
 
 
-mongoose.connect('mongodb+srv://perdimeupet_db:<password>@apiperdimeupet.pxqtm5b.mongodb.net/?retryWrites=true&w=majority', {
+mongoose.connect(MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then(() => {
