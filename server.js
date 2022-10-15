@@ -2,7 +2,9 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
 const mongoose = require('mongoose');
-
+ 
+// use alternate localhost and the port Heroku assigns to $PORT
+const host = '0.0.0.0';  
 const PORT = process.env.PORT || 3000;
 const MONGODB_URI = process.env.MONGODB_URI;
 
@@ -124,7 +126,7 @@ app.get("/pets_lost", (req, res) => {
     }) 
 });
  
-
-app.listen(8080, () =>{
-    console.log("Servidor iniciado na porta 8080: http://localhost:"+ PORT);
-});
+app.listen(PORT, host, function() {
+    console.log("Server started.......");
+  });
+ 
