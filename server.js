@@ -2,6 +2,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
 const mongoose = require('mongoose');
+const PORT = process.env.PORT || 3000;
 
 require("./api/models/characters.model");
 const Characters = mongoose.model('characters');
@@ -123,5 +124,5 @@ app.get("/pets_lost", (req, res) => {
  
 
 app.listen(8080, () =>{
-    console.log("Servidor iniciado na porta 8080: http://localhost:8080/");
+    console.log("Servidor iniciado na porta 8080: http://localhost:"+ PORT);
 });

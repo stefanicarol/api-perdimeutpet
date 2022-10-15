@@ -1,6 +1,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
 
+const PORT = process.env.PORT || 3000;
+
+
 require("./api/models/characters.model");
 const Characters = mongoose.model('characters');
 
@@ -11,7 +14,7 @@ const app = express();
 
 app.use(express.json());
 
-mongoose.connect('mongodb://localhost/perdimeupet', {
+mongoose.connect('mongodb+srv://perdimeupet_db:<password>@apiperdimeupet.pxqtm5b.mongodb.net/?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then(() => {
@@ -103,5 +106,5 @@ app.get("/pets_lost", (req, res) => {
  
 
 app.listen(8080, () =>{
-    console.log("Servidor iniciado na porta 8080: http://localhost:8080/");
+    console.log("Servidor iniciado na porta 8080: http://localhost:"+ PORT);
 });
