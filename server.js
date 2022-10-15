@@ -32,7 +32,7 @@ var server = app.listen(1338, function () {
 });
 
 
-mongoose.connect('mongodb://localhost/perdimeupet', {
+mongoose.connect('mongodb+srv://perdimeupet_db:<password>@apiperdimeupet.pxqtm5b.mongodb.net/?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then(() => {
