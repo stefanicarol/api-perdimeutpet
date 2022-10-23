@@ -15,7 +15,7 @@
     "dev": "nodemon",
     "start": "node app.js"
   },
-  "description": "--------------------------------------\r SEQUENCIA PARA CRIAR O PROJETO\r --------------------------------------\r Criar o arquivo package\r npm init",
+  "description": "api-perdimeupet",
   "version": "1.0.0",
   "author": "Stéfani Carol Gonçalves",
   "license": "ISC",
