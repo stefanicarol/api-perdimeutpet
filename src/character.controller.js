@@ -1,9 +1,13 @@
 const mongoose = require('mongoose');
+const swaggerAutogen = require('swagger-autogen');
 require("./characters.model");
 const Characters = mongoose.model('characters');
 
 // ENDPOINT PARA CADASTRAR UM CARACTERÍSTICAS
 exports.post =  (req, res) => {
+    // #swagger.tags = ['default']
+    // #swagger.description = 'Endpoint para obter das características dos animais.'
+        
     const characters = Characters.create(req.body, (err) => {
         if (err) return res.status(400).json({
             error: true,
